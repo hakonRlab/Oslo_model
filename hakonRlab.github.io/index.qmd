@@ -26,3 +26,7 @@ mi <- aregImpute(~ pN + PSAutredn + ISUP3 + ISUP4 + ISUP5 + cT2a  + cT2b + cT2c 
 mi <- aregImpute(~ pN + PSAutredn + ISUP + PIRADS345  + mr_cT + MRindexTumorL1 + ProstVolum + dre_cT + BMI + PercPosCores, data=plndbayes_mrpNimp, n.impute=10, nk=4, pr=FALSE, boot.method = 'approximate bayesian')
 ```
 
+```{r}
+
+```
+
