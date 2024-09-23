@@ -1,0 +1,32 @@
+---
+title: "hakonRlab.github.io"
+---
+
+The Oslo model.
+
+Sample size calculation was done using the pmsampsize package.
+
+
+```{r}
+library(pmsampsize)
+out <- pmsampsize(type = "b", cstatistic  = 0.8, parameters = 20, prevalence = 0.25, shrinkage = 0.8)
+out <- pmsampsize_bin(type = "b", cstatistic  = 0.8, parameters = 10, prevalence = 0.25, shrinkage = 0.8, sad = 0.1)
+out$results_table
+```
+
+Imputing missing values with rmsb package
+
+```{r}
+library(rmsb)
+
+set.seed(1999)         # so can reproduce random aspects
+mi <- aregImpute(~ pN + PSAutredn + ISUP3 + ISUP4 + ISUP5 + cT2a  + cT2b + cT2c + cT3 + PIRADS4 + PIRADS5  + cT_mr3a + cT_mr3b + MRindexTumorL1 + ProstVolum + BMI,
+                 data=plndbayes_mrpNimp, n.impute=10, nk=3, pr=FALSE)
+
+mi <- aregImpute(~ pN + PSAutredn + ISUP + PIRADS345  + mr_cT + MRindexTumorL1 + ProstVolum + dre_cT + BMI + PercPosCores, data=plndbayes_mrpNimp, n.impute=10, nk=4, pr=FALSE, boot.method = 'approximate bayesian')
+```
+
+```{r}
+
+```
+
